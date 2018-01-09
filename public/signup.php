@@ -15,25 +15,25 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
      * Validation des entrées du formulaire
      */
 
-    if (is_null($params['first-name']) || empty($params['first-name'])) {
+    if (empty($params['first-name'])) {
         echo 'Veuillez remplir first-name';
     }
 
-    if (is_null($params['last-name']) || empty($params['last-name'])) {
+    if (empty($params['last-name'])) {
         echo 'Veuillez remplir last-name';
     }
 
-    if (is_null($params['email']) || empty($params['email'])) {
+    if (empty($params['email'])) {
         echo 'Veuillez remplir email';
     }
 
-    if (is_null($params['password']) || empty($params['password'])) {
+    if (empty($params['password'])) {
         echo 'Veuillez remplir password';
     }
 
-    if (is_null($params['repeat-password']) || empty($params['repeat-password'])) {
+    if (empty($params['repeat-password'])) {
         echo 'Veuillez remplir repeat-password';
-    } else if ($params['repeat-password'] !== $params['password'] && (!is_null($params['password']) && !empty($params['password']))) {
+    } else if ($params['repeat-password'] !== $params['password'] && !empty($params['password'])) {
         echo 'Vos mots de passe ne correspondent pas !';
     }
 
