@@ -1,10 +1,10 @@
 <?php
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $expectedFields = ['first-name', 'last-name', 'email', 'password', 'repeat-password'];
+    $expectedFields = ['first-name' => 'nonEmptyString', 'last-name' => 'nonEmptyString', 'email' => 'nonEmptyString', 'password' => 'nonEmptyString', 'repeat-password' => 'nonEmptyString'];
 
     $params = [];
-    foreach($expectedFields as $fieldName) {
+    foreach($expectedFields as $fieldName => $val) {
         $value = $_POST[$fieldName] ?? null;
         $params[$fieldName] = $value;
     }
