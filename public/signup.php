@@ -6,8 +6,12 @@ function nonEmptyString(String $str): ?String {
     return null;
 }
 
+function password(String $pass): ?String {
+    if (strlen($pass) < 6) return 'Mot de passe est trop petit';
+}
+
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $expectedFields = ['first-name' => 'nonEmptyString', 'last-name' => 'nonEmptyString', 'email' => 'nonEmptyString', 'password' => 'nonEmptyString', 'repeat-password' => 'nonEmptyString'];
+    $expectedFields = ['first-name' => 'nonEmptyString', 'last-name' => 'nonEmptyString', 'email' => 'nonEmptyString', 'password' => 'nonEmptyString!password', 'repeat-password' => 'nonEmptyString'];
 
     $params = [];
 
@@ -22,12 +26,17 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $errors = [];
 
-    foreach($expectedFields as $fieldName => $validator) {
-        $val = $params[$fieldName];
-        $fail = $validator($val);
+    foreach($expectedFields as $fieldName => $validatorString) {
+        $validators = explode('!', $validatorString);
 
-        if (!is_null($fail)) {
-            $errors[$fieldName] = $fail;
+        $val = $params[$fieldName];
+
+        foreach($validators as $validator) {
+            $fail = $validator($val);
+
+            if (!is_null($fail)) {
+                $errors[$fieldName] = $fail;
+            }
         }
     }
 
