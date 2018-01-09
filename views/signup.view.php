@@ -43,8 +43,8 @@
                 <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
                     Prénom
                 </label>
-                <input name="first-name" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text" placeholder="Jane">
-                <p class="text-red text-xs italic">Veuillez remplir ce champ.</p>
+                <input name="first-name" class="appearance-none block w-full text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3 <?= getError('first-name') ? 'border-red' : 'bg-grey-lighter' ?>" id="grid-first-name" type="text" placeholder="Jane">
+                <p class="text-red text-xs italic"><?= getError('first-name') ?></p>
             </div>
             <div class="w-full md:w-1/2 px-3">
                 <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-last-name">

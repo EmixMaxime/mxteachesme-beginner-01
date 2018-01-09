@@ -41,4 +41,16 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
+
+function getError(String $fieldName): ?String {
+    global $errors;
+
+    if (!is_null($errors) && count($errors) > 0) {
+        return $errors[$fieldName] ?? null;
+    }
+
+    return null;
+}
+
+
 require '../views/signup.view.php';
