@@ -15,28 +15,30 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
      * Validation des entrées du formulaire
      */
 
+    $errors = [];
+    $emptyFail = 'Veuillez remplir ce champ';
+
     if (empty($params['first-name'])) {
-        echo 'Veuillez remplir first-name';
+        $errors['first-name'] = $emptyFail;
     }
 
     if (empty($params['last-name'])) {
-        echo 'Veuillez remplir last-name';
+        $errors['last-name'] = $emptyFail;
     }
 
     if (empty($params['email'])) {
-        echo 'Veuillez remplir email';
+        $errors['email'] = $emptyFail;
     }
 
     if (empty($params['password'])) {
-        echo 'Veuillez remplir password';
+        $errors['password'] = $emptyFail;
     }
 
     if (empty($params['repeat-password'])) {
-        echo 'Veuillez remplir repeat-password';
+        $errors['repeat-password'] = $emptyFail;
     } else if ($params['repeat-password'] !== $params['password'] && !empty($params['password'])) {
-        echo 'Vos mots de passe ne correspondent pas !';
+        $errors['repeat-password'] = 'Vos mots de passe ne correspondent pas !';
     }
-
 }
 
 require '../views/signup.view.php';
