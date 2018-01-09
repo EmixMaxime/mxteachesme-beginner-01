@@ -43,14 +43,14 @@
                 <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
                     Prénom
                 </label>
-                <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text" placeholder="Jane">
+                <input name="first-name" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text" placeholder="Jane">
                 <p class="text-red text-xs italic">Veuillez remplir ce champ.</p>
             </div>
             <div class="w-full md:w-1/2 px-3">
                 <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-last-name">
                     Nom
                 </label>
-                <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="grid-last-name" type="text" placeholder="Doe">
+                <input name="last-name" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="grid-last-name" type="text" placeholder="Doe">
             </div>
         </div>
         <div class="flex flex-wrap -mx-3 mb-6">
@@ -58,7 +58,7 @@
                 <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-email">
                     Email
                 </label>
-                <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3" id="grid-email" type="email">
+                <input name="email" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3" id="grid-email" type="email">
             </div>
         </div>
 
@@ -67,8 +67,18 @@
                 <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-password">
                     Mot de passe
                 </label>
-                <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3" id="grid-password" type="password" placeholder="******************">
+                <input name="password" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3" id="grid-password" type="password" placeholder="******************">
                 <p class="text-grey-dark text-xs italic">Make it as long and as crazy as you'd like</p>
+            </div>
+        </div>
+
+        <div class="flex flex-wrap -mx-3 mb-6">
+            <div class="w-full px-3">
+                <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-password">
+                    Mot de passe
+                </label>
+                <input name="repeat-password" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3" id="grid-password" type="password" placeholder="******************">
+                <p class="text-grey-dark text-xs italic">Juste pour être sûr !</p>
             </div>
         </div>
 
