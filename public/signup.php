@@ -1,11 +1,15 @@
 <?php
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $firstName = $_POST['first-name'] ?? null;
-    $lastName = $_POST['last-name'] ?? null;
-    $email = $_POST['email'] ?? null;
-    $password = $_POST['password'] ?? null;
-    $repeatPassword = $_POST['repeat-password'] ?? null;
+    $expectedFields = ['first-name', 'last-name', 'email', 'password', 'repeat-password'];
+
+    $params = [];
+    foreach($expectedFields as $field) {
+        $param = $_POST[$field] ?? null;
+        array_push($params, $param);
+    }
+
+    var_dump($params); // -> ['Maxime', 'Moreau', null, 'bonjour', 'bonjour']
 }
 
 require '../views/signup.view.php';
