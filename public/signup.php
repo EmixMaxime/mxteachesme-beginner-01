@@ -52,13 +52,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     var_dump($errors);
 
     if (count($errors) === 0) {
+        addFlashMessage('information', "Hello world, I'm a flash message !");
         redirect('/home.php');
     }
 }
 
 addFlashMessage('information', "Hello world, I'm a flash message !");
-redirect('/home.php');
-
 
 function getValue(String $fieldName): String {
     global $errors, $params;
@@ -81,4 +80,6 @@ function getError(String $fieldName): ?String {
 }
 
 
-require '../views/signup.view.php';
+require('../src/view.php');
+
+render('signup');
