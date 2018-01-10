@@ -1,6 +1,7 @@
 <?php
 
 require('../src/http.php');
+require('../src/session.php');
 
 function nonEmptyString(String $str): ?String {
     if (empty($str)) return 'Veuillez remplir ce champ';
@@ -54,6 +55,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         redirect('/home.php');
     }
 }
+
+addFlashMessage('information', "Hello world, I'm a flash message !");
+redirect('/home.php');
 
 
 function getValue(String $fieldName): String {
