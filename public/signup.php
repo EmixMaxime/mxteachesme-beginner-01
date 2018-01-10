@@ -29,21 +29,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
      * Validation des entrées du formulaire
      */
 
-    $errors = [];
-
-    foreach($expectedFields as $fieldName => $validatorString) {
-        $validators = explode('!', $validatorString);
-
-        $val = $params[$fieldName];
-
-        foreach($validators as $validator) {
-            $fail = $validator($val);
-
-            if (!is_null($fail)) {
-                $errors[$fieldName] = $fail;
-            }
-        }
-    }
+    $errors = validator($expectedFields, $params);
 
     if ($params['repeat-password'] !== $params['password'] && !empty($params['password'])) {
         $errors['repeat-password'] = 'Vos mots de passe ne correspondent pas !';

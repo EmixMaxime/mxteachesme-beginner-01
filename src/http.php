@@ -15,3 +15,24 @@ function redirect(String $url, bool $permanent = false): void
 
     exit();
 }
+
+function validator(array $validator, array $params): array
+{
+    $errors = [];
+
+    foreach($validator as $fieldName => $validatorString) {
+        $validators = explode('!', $validatorString);
+
+        $val = $params[$fieldName];
+
+        foreach($validators as $validator) {
+            $fail = $validator($val);
+
+            if (!is_null($fail)) {
+                $errors[$fieldName] = $fail;
+            }
+        }
+    }
+
+    return $errors;
+}
