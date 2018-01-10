@@ -66,7 +66,7 @@ function extends_layout() {
 
                             <div class="w-3/4 flex px-4">
                                 <div class="w-full text-right">
-                                    <a href="#" class="text-grey">
+                                    <a href="?action=del&id=<?= $user['id'] ?>" class="text-grey">
                                         Supprimer
                                     </a>
                                 </div>
