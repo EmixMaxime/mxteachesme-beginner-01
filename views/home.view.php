@@ -1,14 +1,12 @@
-<!doctype html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
-    <title>Apprendre PHP sur mxteaches.me</title>
-</head>
-<body>
+<?php
 
-<?php require('parts/header.view.php'); require('../src/session.php'); ?>
+require('../src/session.php');
+
+function extends_layout() {
+    function block_body() {
+        require('parts/header.view.php');
+
+?>
 
 <div class="container mx-auto mt-8">
 
@@ -31,4 +29,7 @@
     ?>
 </div>
 
-</body>
+<?php
+    }
+}
+?>
