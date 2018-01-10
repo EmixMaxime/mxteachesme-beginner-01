@@ -57,14 +57,14 @@ function extends_layout() {
                         <div class="flex-grow flex px-6 py-6 text-grey-darker items-center border-b -mx-4">
 
                             <div class="w-1/4 xl:w-1/4 px-4 flex items-center">
-                                <span class="text-lg">Maxime</span>
+                                <span class="text-lg"><?= $user['first_name'] ?></span>
                             </div>
 
-                            <div class="w-1/4 xl:flex hidden md:flex lg:hidden px-4 items-center">
-                                something@gmail.com
+                            <div class="w-3/4 xl:flex hidden md:flex lg:hidden px-4 items-center">
+                                <?= $user['email'] ?>
                             </div>
 
-                            <div class="w-1/2 flex px-4">
+                            <div class="w-3/4 flex px-4">
                                 <div class="w-full text-right">
                                     <a href="#" class="text-grey">
                                         Supprimer
