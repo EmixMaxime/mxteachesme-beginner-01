@@ -2,18 +2,7 @@
 
 require('../src/http.php');
 require('../src/session.php');
-
-function nonEmptyString(String $str): ?String {
-    if (empty($str)) return 'Veuillez remplir ce champ';
-
-    return null;
-}
-
-function password(String $pass): ?String {
-    if (strlen($pass) < 6) return 'Mot de passe est trop petit';
-
-    return null;
-}
+require('../src/validators.php');
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $expectedFields = ['first-name' => 'nonEmptyString', 'last-name' => 'nonEmptyString', 'email' => 'nonEmptyString', 'password' => 'nonEmptyString!password', 'repeat-password' => 'nonEmptyString'];
