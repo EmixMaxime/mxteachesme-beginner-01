@@ -36,3 +36,15 @@ function validator(array $validator, array $params): array
 
     return $errors;
 }
+
+function getBodyFromExpectedFields(array $expectedFields): array
+{
+    $params = [];
+
+    foreach($expectedFields as $fieldName) {
+        $value = $_POST[$fieldName] ?? null;
+        $params[$fieldName] = $value;
+    }
+
+    return $params;
+}

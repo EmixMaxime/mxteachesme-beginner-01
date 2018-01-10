@@ -18,12 +18,7 @@ function password(String $pass): ?String {
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $expectedFields = ['first-name' => 'nonEmptyString', 'last-name' => 'nonEmptyString', 'email' => 'nonEmptyString', 'password' => 'nonEmptyString!password', 'repeat-password' => 'nonEmptyString'];
 
-    $params = [];
-
-    foreach($expectedFields as $fieldName => $val) {
-        $value = $_POST[$fieldName] ?? null;
-        $params[$fieldName] = $value;
-    }
+    $params = getBodyFromExpectedFields(array_keys($expectedFields));
 
     /**
      * Validation des entrées du formulaire
