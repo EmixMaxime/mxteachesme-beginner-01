@@ -2,6 +2,7 @@
 
 function extends_layout() {
     function block_body() {
+        global $users;
         require('parts/header.view.php');
 
 ?>
