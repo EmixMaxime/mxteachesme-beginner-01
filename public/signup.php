@@ -1,5 +1,7 @@
 <?php
 
+require('../src/http.php');
+
 function nonEmptyString(String $str): ?String {
     if (empty($str)) return 'Veuillez remplir ce champ';
 
@@ -47,6 +49,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     var_dump($errors);
+
+    if (count($errors) === 0) {
+        redirect('/home.php');
+    }
 }
 
 
