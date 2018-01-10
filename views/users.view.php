@@ -50,24 +50,30 @@ function extends_layout() {
                         </div>
                     </div>
 
-                    <div class="flex-grow flex px-6 py-6 text-grey-darker items-center border-b -mx-4">
+                    <?php
+                    foreach($users as $user) {
+                    ?>
+                        <div class="flex-grow flex px-6 py-6 text-grey-darker items-center border-b -mx-4">
 
-                        <div class="w-1/4 xl:w-1/4 px-4 flex items-center">
-                            <span class="text-lg">Maxime</span>
-                        </div>
+                            <div class="w-1/4 xl:w-1/4 px-4 flex items-center">
+                                <span class="text-lg">Maxime</span>
+                            </div>
 
-                        <div class="w-1/4 xl:flex hidden md:flex lg:hidden px-4 items-center">
-                            something@gmail.com
-                        </div>
+                            <div class="w-1/4 xl:flex hidden md:flex lg:hidden px-4 items-center">
+                                something@gmail.com
+                            </div>
 
-                        <div class="w-1/2 flex px-4">
-                            <div class="w-full text-right">
-                                <a href="#" class="text-grey">
-                                    Supprimer
-                                </a>
+                            <div class="w-1/2 flex px-4">
+                                <div class="w-full text-right">
+                                    <a href="#" class="text-grey">
+                                        Supprimer
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
