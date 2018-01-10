@@ -8,6 +8,8 @@ function nonEmptyString(String $str): ?String {
 
 function password(String $pass): ?String {
     if (strlen($pass) < 6) return 'Mot de passe est trop petit';
+
+    return null;
 }
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
