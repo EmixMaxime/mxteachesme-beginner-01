@@ -48,3 +48,25 @@ function getBodyFromExpectedFields(array $expectedFields): array
 
     return $params;
 }
+
+function getError(String $fieldName): ?String
+{
+    global $errors;
+
+    if (!is_null($errors) && count($errors) > 0) {
+        return $errors[$fieldName] ?? null;
+    }
+
+    return null;
+}
+
+function getValue(String $fieldName): String
+{
+    global $errors, $params;
+
+    if (!is_null($errors) && count($errors) > 0) {
+        return $params[$fieldName] ?? '';
+    }
+
+    return '';
+}
