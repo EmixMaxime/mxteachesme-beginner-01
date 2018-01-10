@@ -48,6 +48,16 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 
+function getValue(String $fieldName): String {
+    global $errors, $params;
+
+    if (!is_null($errors) && count($errors) > 0) {
+        return $params[$fieldName] ?? '';
+    }
+
+    return '';
+}
+
 function getError(String $fieldName): ?String {
     global $errors;
 

@@ -43,7 +43,7 @@
                 <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
                     Prénom
                 </label>
-                <input name="first-name" class="appearance-none block w-full text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3 <?= getError('first-name') ? 'border-red' : 'bg-grey-lighter' ?>" id="grid-first-name" type="text" placeholder="Jane">
+                <input name="first-name" value="<?= getValue('first-name') ?>" class="appearance-none block w-full text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3 <?= getError('first-name') ? 'border-red' : 'bg-grey-lighter' ?>" id="grid-first-name" type="text" placeholder="Jane">
                 <p class="text-red text-xs italic"><?= getError('first-name') ?></p>
             </div>
             <div class="w-full md:w-1/2 px-3">
