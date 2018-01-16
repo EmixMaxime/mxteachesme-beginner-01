@@ -30,7 +30,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (count($errors) === 0) {
-        addFlashMessage('information', "Hello world, I'm a flash message !");
+    	addFlashMessage('information', "Hello world, I'm a flash message !");
+
+		$password = password_hash($password, PASSWORD_BCRYPT);
         $r = $pdo->exec("INSERT INTO users(email, first_name, last_name, password) VALUES('$email', '$firstName', '$lastName', '$password')"
         );
 
