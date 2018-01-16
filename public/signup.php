@@ -3,6 +3,7 @@
 require('../src/http.php');
 require('../src/session.php');
 require('../src/validators.php');
+require('../src/database.php');
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $expectedFields = ['first-name' => 'nonEmptyString', 'last-name' => 'nonEmptyString', 'email' => 'nonEmptyString', 'password' => 'nonEmptyString!password', 'repeat-password' => 'nonEmptyString'];
@@ -15,15 +16,31 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $errors = validator($expectedFields, $params);
 
-    if ($params['repeat-password'] !== $params['password'] && !empty($params['password'])) {
+    [
+      'repeat-password' => $repeatPassword,
+      'password' => $password,
+      'email' => $email,
+      'first-name' => $firstName,
+      'last-name' => $lastName
+    ] = $params;
+
+
+    if ($repeatPassword !== $password && !empty($password)) {
         $errors['repeat-password'] = 'Vos mots de passe ne correspondent pas !';
     }
 
-    var_dump($errors);
-
     if (count($errors) === 0) {
         addFlashMessage('information', "Hello world, I'm a flash message !");
-        redirect('/home.php');
+        $r = $pdo->exec("INSERT INTO users(email, first_name, last_name, password) VALUES('$email', '$firstName', '$lastName', '$password')"
+        );
+
+        if ($r === 0) {
+          addFlashMessage('warning', "Une erreur s'est produite lors de votre inscription");
+          redirect('/signup.php');
+        }
+
+        addFlashMessage('information', "Vous pouvez désormais vous connecter.");
+        redirect('/signin.php');
     }
 }
 
