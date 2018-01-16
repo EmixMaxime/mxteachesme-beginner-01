@@ -25,8 +25,9 @@ function extends_layout() {
                 <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="password">
                     Mot de passe
                 </label>
-                <input name="password" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="password" type="password">
-            </div>
+                <input name="password" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 <?= getError('password') ? 'border-red' : 'bg-grey-lighter' ?>" id="password" type="password">
+				<p class="text-red text-xs italic"><?= getError('password') ?></p>
+			</div>
 
 		</div>
 
