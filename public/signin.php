@@ -21,7 +21,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	] = $params;
 
 	if (count($errors) === 0) {
-		$user = $pdo->query("SELECT * from users WHERE email = '$email'")->fetch();
+		$query = $pdo->prepare("SELECT * from users WHERE email = :email");
+		$query->bindParam(':email', $email);
+		$query->execute();
+		$user = $query->fetch();
 
 		if ($user && password_verify($password, $user['password'])) {
 			$_SESSION['user'] = array_filter($user, function($value, $key) {
