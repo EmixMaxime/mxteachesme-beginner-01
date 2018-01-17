@@ -7,8 +7,6 @@ require('../src/http.php');
 
 redirectIfNotAuthenticated();
 
-$users = $pdo->query('SELECT * FROM users')->fetchAll(PDO::FETCH_ASSOC);
-
 $action = $_GET['action'] ?? null;
 
 if (!is_null($action)) {
@@ -43,7 +41,9 @@ if (!is_null($action)) {
 		}
 
 		$users = [$user];
+		render('users');
 	}
+} else {
+	$users = $pdo->query('SELECT * FROM users')->fetchAll(PDO::FETCH_ASSOC);
+	render('users');
 }
-
-render('users');
