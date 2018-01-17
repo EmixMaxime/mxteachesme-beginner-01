@@ -1,3 +1,7 @@
+<?php
+$user = getUserFromSession();
+?>
+
 <header>
     <nav class="flex items-center justify-between flex-wrap bg-teal p-6">
         <div class="flex items-center flex-no-shrink mr-6">
@@ -13,12 +17,24 @@
                 <a href="home.php" class="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-white mr-4">
                     Accueil
                 </a>
+            <?php
+                if (is_null($user)) {
+            ?>
                 <a href="signin.php" class="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-white mr-4">
                     Se connecter
                 </a>
                 <a href="signup.php" class="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-white">
                     S'inscrire
                 </a>
+				<?php
+	            } else {
+	            ?>
+	            <a href="logout.php" class="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-white">
+	                Se déconnecter
+	            </a>
+	            <?php
+	            }
+	            ?>
             </div>
         </div>
     </nav>
