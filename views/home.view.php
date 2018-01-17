@@ -1,7 +1,5 @@
 <?php
 
-require('../src/session.php');
-
 function extends_layout() {
     function block_body() {
         require('parts/header.view.php');
