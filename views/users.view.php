@@ -37,12 +37,17 @@ function extends_layout() {
                                 <?= $user['email'] ?>
                             </div>
 
-                            <div class="w-3/4 flex px-4">
-                                <div class="w-full text-right">
-                                    <a href="?action=del&id=<?= $user['id'] ?>" class="text-grey">
-                                        Supprimer
-                                    </a>
-                                </div>
+                            <div class="w-1/2 flex px-4 text-right">
+								<div class="w-full">
+									<a href="?action=show&id=<?= $user['id'] ?>" class="text-grey">
+										Afficher
+									</a>
+								</div>
+								<div class="w-full">
+									<a href="?action=del&id=<?= $user['id'] ?>" class="text-grey">
+										Supprimer
+									</a>
+								</div>
                             </div>
                         </div>
                     <?php
