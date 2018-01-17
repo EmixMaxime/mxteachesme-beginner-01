@@ -5,6 +5,8 @@ require('../src/session.php');
 require('../src/validators.php');
 require('../src/database.php');
 
+redirectIfAuthenticated();
+
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $expectedFields = ['first-name' => 'nonEmptyString', 'last-name' => 'nonEmptyString', 'email' => 'nonEmptyString', 'password' => 'nonEmptyString!password', 'repeat-password' => 'nonEmptyString'];
 

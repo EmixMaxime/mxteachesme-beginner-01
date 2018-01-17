@@ -5,6 +5,8 @@ require('../src/session.php');
 require('../src/database.php');
 require('../src/http.php');
 
+redirectIfNotAuthenticated();
+
 $users = $pdo->query('SELECT * FROM users')->fetchAll(PDO::FETCH_ASSOC);
 
 $action = $_GET['action'] ?? null;
