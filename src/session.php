@@ -24,3 +24,8 @@ function getFlashMessage(String $key): ?String
 
     return null;
 }
+
+function getUserFromSession(): ?array
+{
+	return $_SESSION['user'] ?? null;
+}
