@@ -1,7 +1,8 @@
 <?php
 
-function render(String $templateName): void
+function render(String $templateName, array $data = []): void
 {
+	extract($data);
     require("../views/$templateName.view.php");
 
     if (function_exists('extends_layout')) {
