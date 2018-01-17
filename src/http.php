@@ -37,6 +37,20 @@ function validator(array $validator, array $params): array
     return $errors;
 }
 
+function redirectIfNotAuthenticated(String $redirect = "signin.php"): void
+{
+	if (is_null(getUserFromSession())) {
+		redirect($redirect);
+	}
+}
+
+function redirectIfAuthenticated(String $redirect = "home.php"): void
+{
+	if (!is_null(getUserFromSession())) {
+		redirect($redirect);
+	}
+}
+
 function getBodyFromExpectedFields(array $expectedFields): array
 {
     $params = [];
