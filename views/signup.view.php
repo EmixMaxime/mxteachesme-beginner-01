@@ -7,7 +7,7 @@ function extends_layout() {
 
 <div class="container mx-auto mt-8">
 
-    <form class="w-full max-w-md mx-auto" method="POST" action="<?= $_SERVER["PHP_SELF"] ?>">
+    <form class="w-full max-w-md mx-auto" method="POST" action="<?= htmlentities($_SERVER["PHP_SELF"]) ?>">
 
         <div class="flex flex-wrap -mx-3 mb-6">
             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
