@@ -5,8 +5,6 @@ function listAction()
 	global $pdo;
 
 	$users = $pdo->query('SELECT * FROM users')->fetchAll(PDO::FETCH_ASSOC);
-	// That's bad!
-	$GLOBALS['users'] = $users;
 
 	render('users', compact('users'));
 }
@@ -25,8 +23,6 @@ function show(int $userId)
 	}
 
 	$users = [$user];
-	// That's bad!
-	$GLOBALS['users'] = $users;
 	
 	render('users', compact('users'));
 }

@@ -2,7 +2,10 @@
 
 function render(String $templateName, array $data = []): void
 {
-	extract($data);
+	foreach($data as $variableName => $value) {
+		$GLOBALS[$variableName] = $value;
+	}
+
     require("../views/$templateName.view.php");
 
     if (function_exists('extends_layout')) {

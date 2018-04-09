@@ -2,6 +2,7 @@
 
 function extends_layout() {
     function block_body() {
+		// "import" needed variables.
         global $users;
         require('parts/header.view.php');
 
