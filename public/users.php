@@ -4,6 +4,7 @@ require('../src/view.php');
 require('../src/session.php');
 require('../src/database.php');
 require('../src/http.php');
+require('../src/controllers/users.controller.php');
 
 redirectIfNotAuthenticated();
 
@@ -18,32 +19,12 @@ if (!is_null($action)) {
     }
 
 	if ($action === 'del') {
-		$query = $pdo->prepare("DELETE FROM users WHERE id = ?");
-		$c = $query->execute([$id]);
-
-	    if ($c === 0) {
-	        addFlashMessage('warning', "Une erreur s'est produite lors de la suppression du compte.");
-	        redirect('users.php');
-	    }
-
-	    addFlashMessage('information', "Le compte portant l'identifiant $id a bien été supprimé.");
-	    redirect('users.php');
+		delete($id);
 	}
 
 	if ($action === 'show') {
-		$query = $pdo->prepare("SELECT * from users WHERE id = ?");
-		$query->execute([$id]);
-		$user = $query->fetch();
-
-		if (!$user) {
-			addFlashMessage('warning', "Une erreur s'est produite lors de l'affichage du compte.");
-			redirect('users.php');
-		}
-
-		$users = [$user];
-		render('users');
+		show($id);
 	}
 } else {
-	$users = $pdo->query('SELECT * FROM users')->fetchAll(PDO::FETCH_ASSOC);
-	render('users');
+	listAction();
 }
