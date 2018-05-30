@@ -45,14 +45,18 @@ function extends_layout() {
 
 </div>
 
-<script
-  src="https://code.jquery.com/jquery-3.3.1.js"
-  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous"></script>
-<script src="js/home.js"></script>
-
-
 <?php
-    }
+	} // end block body
+	
+	function block_footer() {
+	?>
+		<script
+		src="https://code.jquery.com/jquery-3.3.1.js"
+		integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+		crossorigin="anonymous"></script>
+
+		<script src="js/home.js"></script>
+	<?php
+	} // endn block footer
 }
 ?>
