@@ -1,3 +1,12 @@
+<?php
+
+function layout(?String $blockBody, ?String $blockFooter) {
+
+	if(!$blockBody) {
+		throw new Exception('You have to create an blockBody');
+	}
+
+?>
 <!doctype html>
 <html lang="fr">
 <head>
@@ -10,11 +19,14 @@
     <body>
     <?php
         // Création d'un "block"
-        function yield_body(String $content)
-        {
-            return $content;
-        }
+        echo $blockBody;
     ?>
-    </body>
+	</body>
 
+	<?= $blockFooter; ?>
+	
 </html>
+
+<?php
+}
+?>

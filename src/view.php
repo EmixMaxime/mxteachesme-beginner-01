@@ -9,14 +9,23 @@ function render(String $templateName, array $data = []): void
     require("../views/$templateName.view.php");
 
     if (function_exists('extends_layout')) {
-        ob_start();
-        extends_layout();
-        block_body();
-        $block = ob_get_clean();
+		extends_layout();
 
-        require('../views/layout.view.php');
+		ob_start();
+		block_body();
+		$blockBody = ob_get_clean();
 
-        $content = yield_body($block);
-        echo $content;
+		ob_start();
+		block_footer();
+		$blockFooter = ob_get_clean();
+
+
+		require('../views/layout.view.php');
+		
+		ob_start();
+		layout($blockBody, $blockFooter);
+		$html = ob_get_clean();
+
+        echo $html;
     }
 }
