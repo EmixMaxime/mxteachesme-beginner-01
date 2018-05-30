@@ -1,8 +1,8 @@
 <?php
 
-function nonEmptyString(String $str): ?String
+function nonEmptyString(?String $str): ?String
 {
-    if (empty($str)) return 'Veuillez remplir ce champ';
+    if (empty($str) || is_null($str)) return 'Veuillez remplir ce champ';
 
     return null;
 }
